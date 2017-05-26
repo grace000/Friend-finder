@@ -1,12 +1,12 @@
 {
   "name": "friendfinder",
   "version": "1.0.1",
-  "description": "",
+  "description": "Survey to find a friend",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Tiffani Elmore",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",

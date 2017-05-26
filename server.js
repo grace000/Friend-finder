@@ -9,6 +9,15 @@ var path = require("path");
 var app = express();
 var PORT = 3306;
 
+// // ==Express Setup==
+// const app = express();
+// app.set('port', (process.env.PORT || 5000));
+
+// //Start Server
+// app.listen(app.get('port'), function() {
+//   console.log('Node app is running on port', app.get('port'));
+// });
+
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

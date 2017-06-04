@@ -1,6 +1,6 @@
 // ===============================================================================
-// DATA
-// Below data will hold all of friends
+// DATA stored on server
+// Below data will hold all of friends.
 // ===============================================================================
 
 module.exports = [

@@ -1,7 +1,10 @@
 // ===============================================================================
 // DEPENDENCIES
+//route to html file to deliver to client
 // We need to include the path package to get the correct file path for our html
 // ===============================================================================
+
+//For making page delivery easy with express
 var path = require("path");
 
 
@@ -9,6 +12,7 @@ var path = require("path");
 // ROUTING
 // ===============================================================================
 
+//Routes placed in module.exports so that they can be included in server
 module.exports = function(app) {
   // HTML GET Requests
   // Below code handles when users "visit" a page.

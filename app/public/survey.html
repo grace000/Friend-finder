@@ -182,7 +182,6 @@
 
 
 	</div>
-
     <script type="text/javascript">
     // Capture the form inputs 
     $("#submit").on("click", function() {
@@ -216,7 +215,7 @@
             }
             // Grab the URL of the website
             var currentURL = window.location.origin;
-            // AJAX post the data to the friends API. 
+            // AJAX post the data to the friends API. Send in userData as the request from the user
             $.post(currentURL + "/api/friends", userData, function(data) {
                 // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                 $('#matchName').text(data.name);

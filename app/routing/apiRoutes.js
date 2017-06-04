@@ -28,34 +28,55 @@ module.exports = function(app) {
   // API POST Requests
   // ---------------------------------------------------------------------------
 
-  app.post('/api/friends', function (req, res) {
-    //Note the code here. 
+  app.post("/api/friends", function (req, res) {
     
-    var currentUserScores = req.body.scores;
-    var lowestDifference = 80;
-    var difference = 0;
-    var bestMatch = friendData[0];
+    var bestMatch = {
+      name: "",
+      photo:"",
+      friendDifference: 1000 //measures difference between answers
+    }
+    
+    console.log(req.body);
 
-    for(var i = 0; i < friendData.length; i++) {
-      var possibleMatchScores = friendData[i].scores;
-      for(var x = 0; x < possibleMatchScores.length; x++) {
-        difference += Math.abs(currentUserScores[x] - possibleMatchScores[x]);
+    //Here we take teh result of the user's survey POST and parse it
+    var userData = req.body;
+    var userScores = userData.scores;
+
+    console.log(userScores);
+    
+    //This variable will calculate the difference between the user's scores and the scores
+    //of each user in the database
+    var totalDifference = 0;
+
+    //Here we loop through all the friend possibilities in the database
+    for (var i = 0; i < friendData.length; i++) {
+
+      console.log(friendData[i]);
+      totalDifference = 0;
+
+      //Loop through all of the scores of each friend
+      for (var j = 0; j < friendData[i].scores[j]; j++){
+
+        //Calculate the difference between the scores and sume them into the totalDifference
+        totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friendData[i].scores[j]));
+
+        //If the sum of difference is less that the differences of the current "best match"
+        if (totalDifference += bestMatch.friendDifference) {
+
+          //Reset the bestMatch to be the new friend.
+          bestMatch.name = friendData[i].name;
+          bestMatch.photo = friendData[i].photo;
+          bestMatch.friendDifference = totalDifference;
+        }
       }
-
-      if (difference <= lowestDifference) {
-        lowestDifference = difference;
-        bestMatch = surveyData[i];
-      }
-
-        difference = 0;
-
     }
 
-  friendData.push(req.body);
+    //Save the user's data to the database (this has to happen after the check, otherwise
+    //the database will always return that the user is user's best friend)
+    friendData.push(userData);
 
-  res.json(bestMatch); 
-
-
+    //Return a JSON with the user's bestMatch. 
+    res.json(bestMatch);
 
   });
 
@@ -67,6 +88,9 @@ module.exports = function(app) {
  
 }
 
+
+  //Go back to survey html page, have user send object formatted in same 
+  //way to server at the api/friends route through post request using AJAX 
   // ---------------------------------------------------------------------------
 
 

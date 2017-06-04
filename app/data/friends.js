@@ -1,9 +1,9 @@
 // ===============================================================================
 // DATA
-// Below data will hold all of friend 
+// Below data will hold all of friends
 // ===============================================================================
 
-var friendArray = [
+module.exports = [
   {
     "name":"Ahmed",
   	"photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
@@ -21,7 +21,7 @@ var friendArray = [
     ]
   }, {
     "name":"April",
-  	"photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  	"photo":"https://s-media-cache-ak0.pinimg.com/originals/69/1c/e0/691ce0599bf2e4522ea2fd14a7259e6c.jpg",
   	"scores":[
       5,
       1,
@@ -36,7 +36,7 @@ var friendArray = [
     ]
   }, {
     "name":"Alma",
-  	"photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  	"photo":"https://fiercebeautyandfashion.files.wordpress.com/2010/02/teneyas-headshot.jpg",
   	"scores":[
       5,
       1,
@@ -51,7 +51,7 @@ var friendArray = [
     ]
   }, {
     "name":"Anna",
-  	"photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  	"photo":"https://previews.123rf.com/images/szefei/szefei1308/szefei130800297/21893228-Front-view-headshot-Asian-man-in-casual-wear-standing-isolated-on-white-background-Asian-male-model--Stock-Photo.jpg",
   	"scores":[
       5,
       1,
@@ -68,5 +68,3 @@ var friendArray = [
 
 ];
 
-// Note how we export the array. This makes it accessible to other files using require.
-module.exports = friendArray;
